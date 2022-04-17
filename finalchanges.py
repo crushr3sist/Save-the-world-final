@@ -3,9 +3,9 @@ import random
 from arrays import *
 from functions import *
 
-#add in instruction slides available everywhere
-#add in the score system
-#add in the life system
+# add in instruction slides available everywhere
+# add in the score system
+# add in the life system
 
 screenSize(1920, 1080)
 BLACK = (0, 0, 0)
@@ -42,7 +42,13 @@ antidote = makeSprite("textures/antidote.png")
 
 logo = makeLabel("Save The World", 155, 565, 62, WHITE)
 playPress = makeLabel("START", 60, 911, 518, WHITE)
-creds = makeLabel("An Informative game developed for educating kids about personal hygine", 25, 680, 821, WHITE)
+creds = makeLabel(
+    "An Informative game developed for educating kids about personal hygine",
+    25,
+    680,
+    821,
+    WHITE,
+)
 dev = makeLabel("made by Rohaan Ahmed", 40, 809, 938, WHITE)
 
 buttons = makeSprite("textures/buttons_nodisp.png")
@@ -57,19 +63,60 @@ moveSprite(player, 43, 45)
 transformSprite(player, 0, 0.5)
 
 
-
-questionLabel = makeLabel(questions[quizDispInd], 55, questionsX[quizDispInd], questionsY[quizDispInd], WHITE,'Calibri', 'clear')
-multiAns1Label = makeLabel(multiAns1[quizDispInd], 29, ans1X[quizDispInd], ans1Y[quizDispInd], WHITE, 'Calibri','clear')
-multiAns2Label = makeLabel(multiAns2[quizDispInd], 29, ans2X[quizDispInd], ans2Y[quizDispInd], WHITE, 'Calibri','clear')
-multiAns3Label = makeLabel(multiAns3[quizDispInd], 29, ans3X[quizDispInd], ans3Y[quizDispInd], WHITE, 'Calibri','clear')
-multiAns4Label = makeLabel(multiAns4[quizDispInd], 29, ans4X[quizDispInd], ans4Y[quizDispInd], WHITE, 'Calibri','clear')
-Score = makeLabel(f"SCORE:{score}", 25,5, 5, BLACK, 'Calibri', 'clear')
+questionLabel = makeLabel(
+    questions[quizDispInd],
+    55,
+    questionsX[quizDispInd],
+    questionsY[quizDispInd],
+    WHITE,
+    "Calibri",
+    "clear",
+)
+multiAns1Label = makeLabel(
+    multiAns1[quizDispInd],
+    29,
+    ans1X[quizDispInd],
+    ans1Y[quizDispInd],
+    WHITE,
+    "Calibri",
+    "clear",
+)
+multiAns2Label = makeLabel(
+    multiAns2[quizDispInd],
+    29,
+    ans2X[quizDispInd],
+    ans2Y[quizDispInd],
+    WHITE,
+    "Calibri",
+    "clear",
+)
+multiAns3Label = makeLabel(
+    multiAns3[quizDispInd],
+    29,
+    ans3X[quizDispInd],
+    ans3Y[quizDispInd],
+    WHITE,
+    "Calibri",
+    "clear",
+)
+multiAns4Label = makeLabel(
+    multiAns4[quizDispInd],
+    29,
+    ans4X[quizDispInd],
+    ans4Y[quizDispInd],
+    WHITE,
+    "Calibri",
+    "clear",
+)
+Score = makeLabel(f"SCORE:{score}", 25, 5, 5, BLACK, "Calibri", "clear")
 moveLabel(Score, 804, 28)
 
+
 def instState():
-    setBackgroundImage('textures/instBoard.PNG')
-    instButtons = makeSprite('textures/instBoard.PNG')
-    instQuiz = makeSprite('textures/instButtons.png')
+    setBackgroundImage("textures/instBoard.PNG")
+    instButtons = makeSprite("textures/instBoard.PNG")
+    instQuiz = makeSprite("textures/instButtons.png")
+
 
 def start():
     showSprite(Score)
@@ -123,6 +170,7 @@ def start():
     showSprite(antidote)
     moveSprite(antidote, 1620, 150)
 
+
 def hide1():
     hideLabel(playPress)
     hideLabel(logo)
@@ -130,8 +178,8 @@ def hide1():
     hideLabel(dev)
     setBackgroundImage("textures/baord.png")
     showSprite(player)
-    
-    def quizFunc1():     
+
+    def quizFunc1():
         buttons = makeSprite("textures/buttons_nodisp.png")
         pause(500)
         moveLabel(questionLabel, questionsX[quizDispInd], questionsY[quizDispInd])
@@ -183,6 +231,7 @@ def back():
     showSprite(player)
     setBackgroundImage("textures/baord.png")
 
+
 def quizFunc1():
     buttons = makeSprite("textures/buttons_nodisp.png")
     pause(500)
@@ -204,6 +253,8 @@ def quizFunc1():
     changeLabel(multiAns2Label, multiAns2[quizDispInd])
     changeLabel(multiAns3Label, multiAns3[quizDispInd])
     changeLabel(multiAns4Label, multiAns4[quizDispInd])
+
+
 p = False
 
 answerTouching = False
@@ -214,7 +265,7 @@ life = 3
 
 incorrect = False
 
-while life > 1:    
+while life > 1:
 
     if spriteClicked(playPress):
         hide1()
@@ -377,67 +428,67 @@ while life > 1:
         hideSprite(soap0)
         moveSprite(soap0, 9999, 9999)
         score += 10
-        changeLabel(Score, "Score : "+str(score))
+        changeLabel(Score, "Score : " + str(score))
 
     if touching(player, soap1):
         hideSprite(soap1)
         moveSprite(soap1, 9999, 9999)
         score += 10
-        changeLabel(Score, "Score : "+str(score))
+        changeLabel(Score, "Score : " + str(score))
 
     if touching(player, soap2):
         hideSprite(soap2)
         moveSprite(soap2, 9999, 9999)
         score += 10
-        changeLabel(Score, "Score : "+str(score))
+        changeLabel(Score, "Score : " + str(score))
 
     if touching(player, soap3):
         hideSprite(soap3)
         moveSprite(soap3, 9999, 9999)
         score += 10
-        changeLabel(Score, "Score : "+str(score))
+        changeLabel(Score, "Score : " + str(score))
 
     if touching(player, soap4):
         hideSprite(soap4)
         moveSprite(soap4, 9999, 9999)
         score += 10
 
-        changeLabel(Score, "Score : "+str(score))
-        
+        changeLabel(Score, "Score : " + str(score))
+
     if touching(player, soap5):
         moveSprite(soap5, 9999, 9999)
         hideSprite(soap5)
         score += 10
-        changeLabel(Score, "Score : "+str(score))
+        changeLabel(Score, "Score : " + str(score))
 
     if touching(player, soap6):
         moveSprite(soap6, 9999, 9999)
         hideSprite(soap6)
         score += 10
-        changeLabel(Score, "Score : "+str(score))
+        changeLabel(Score, "Score : " + str(score))
 
     if touching(player, soap7):
         moveSprite(soap7, 9999, 9999)
         hideSprite(soap7)
         score += 10
-        changeLabel(Score, "Score : "+str(score))
+        changeLabel(Score, "Score : " + str(score))
 
     if touching(player, soap8):
         moveSprite(soap8, 9999, 9999)
         hideSprite(soap8)
         score += 10
-        changeLabel(Score, "Score : "+str(score))
+        changeLabel(Score, "Score : " + str(score))
 
     if touching(player, soap9):
         moveSprite(soap9, 9999, 9999)
         hideSprite(soap9)
         score += 10
-        changeLabel(Score, "Score : "+str(score))
+        changeLabel(Score, "Score : " + str(score))
 
     tick(120)
 
     if keyPressed("space"):
-        
+
         moveSprite(player, xArray[count], yArray[count])
         count = count + 1
         pause(200)
@@ -454,19 +505,17 @@ while life > 1:
                 back()
             elif correctAnswerCounter == 1 and spriteClicked(multiAns1Label):
                 incorrect = True
-            
+
             elif correctAnswerCounter == 1 and spriteClicked(multiAns2Label):
                 incorrect = True
-            
+
             elif correctAnswerCounter == 1 and spriteClicked(multiAns4Label):
                 incorrect = True
-            
-            
-                    
+
             if correctAnswerCounter == 2 and spriteClicked(multiAns2Label):
                 score += 10
                 back()
-                
+
             elif correctAnswerCounter == 2 and spriteClicked(multiAns1Label):
                 incorrect = True
             elif correctAnswerCounter == 2 and spriteClicked(multiAns3Label):
@@ -474,28 +523,25 @@ while life > 1:
             elif correctAnswerCounter == 2 and spriteClicked(multiAns4Label):
                 incorrect = True
 
-                        
             if correctAnswerCounter == 3 and spriteClicked(multiAns1Label):
                 score += 10
                 back()
             elif correctAnswerCounter == 3 and spriteClicked(multiAns2Label):
                 incorrect = True
             elif correctAnswerCounter == 3 and spriteClicked(multiAns3Label):
-                incorrect = True    
+                incorrect = True
             elif correctAnswerCounter == 3 and spriteClicked(multiAns4Label):
                 incorrect = True
-                
-                    
+
             if correctAnswerCounter == 4 and spriteClicked(multiAns4Label):
                 score += 10
                 back()
-            elif correctAnswerCounter == 4 and  spriteClicked(multiAns1Label):
+            elif correctAnswerCounter == 4 and spriteClicked(multiAns1Label):
                 incorrect = True
-            elif correctAnswerCounter == 4 and  spriteClicked(multiAns2Label):
+            elif correctAnswerCounter == 4 and spriteClicked(multiAns2Label):
                 incorrect = True
-            elif correctAnswerCounter == 4 and  spriteClicked(multiAns3Label):
+            elif correctAnswerCounter == 4 and spriteClicked(multiAns3Label):
                 incorrect = True
-            
 
             if correctAnswerCounter == 5 and spriteClicked(multiAns4Label):
                 score += 10
@@ -503,10 +549,10 @@ while life > 1:
             elif correctAnswerCounter == 5 and spriteClicked(multiAns1Label):
                 incorrect = True
             elif correctAnswerCounter == 5 and spriteClicked(multiAns2Label):
-                incorrect = True    
+                incorrect = True
             elif correctAnswerCounter == 5 and spriteClicked(multiAns3Label):
                 incorrect = True
-                
+
             if correctAnswerCounter == 6 and spriteClicked(multiAns4Label):
                 score += 10
                 back()
@@ -516,8 +562,7 @@ while life > 1:
                 incorrect = True
             elif correctAnswerCounter == 6 and spriteClicked(multiAns3Label):
                 incorrect = True
-            
-                
+
             if correctAnswerCounter == 7 and spriteClicked(multiAns1Label):
                 score += 10
                 back()
@@ -527,7 +572,7 @@ while life > 1:
                 incorrect = True
             elif correctAnswerCounter == 7 and spriteClicked(multiAns4Label):
                 incorrect = True
-        
+
             if correctAnswerCounter == 8 and spriteClicked(multiAns4Label):
                 score += 10
                 back()
@@ -537,17 +582,17 @@ while life > 1:
                 incorrect = True
             elif correctAnswerCounter == 8 and spriteClicked(multiAns3Label):
                 incorrect = True
-                
+
             if correctAnswerCounter == 9 and spriteClicked(multiAns2Label):
                 score += 10
                 back()
-            elif correctAnswerCounter == 9 and  spriteClicked(multiAns1Label):
+            elif correctAnswerCounter == 9 and spriteClicked(multiAns1Label):
                 incorrect = True
-            elif correctAnswerCounter == 9 and  spriteClicked(multiAns3Label):
+            elif correctAnswerCounter == 9 and spriteClicked(multiAns3Label):
                 incorrect = True
-            elif correctAnswerCounter == 9 and  spriteClicked(multiAns4Label):
+            elif correctAnswerCounter == 9 and spriteClicked(multiAns4Label):
                 incorrect = True
-                
+
             if correctAnswerCounter == 10 and spriteClicked(multiAns3Label):
                 score += 10
                 back()
@@ -557,7 +602,7 @@ while life > 1:
                 incorrect = True
             elif correctAnswerCounter == 10 and spriteClicked(multiAns4Label):
                 incorrect = True
-                
+
             if correctAnswerCounter == 11 and spriteClicked(multiAns3Label):
                 score += 10
                 back()
@@ -567,8 +612,7 @@ while life > 1:
                 incorrect = True
             elif correctAnswerCounter == 11 and spriteClicked(multiAns4Label):
                 incorrect = True
-                
-                        
+
             if correctAnswerCounter == 12 and spriteClicked(multiAns1Label):
                 score += 10
                 back()
@@ -578,7 +622,7 @@ while life > 1:
                 incorrect = True
             elif correctAnswerCounter == 12 and spriteClicked(multiAns4Label):
                 incorrect = True
-                
+
             if correctAnswerCounter == 13 and spriteClicked(multiAns1Label):
                 score += 10
                 back()
@@ -588,7 +632,7 @@ while life > 1:
                 incorrect = True
             elif correctAnswerCounter == 13 and spriteClicked(multiAns4Label):
                 incorrect = True
-                        
+
             if correctAnswerCounter == 14 and spriteClicked(multiAns1Label):
                 score += 10
                 back()
@@ -598,14 +642,12 @@ while life > 1:
                 incorrect = True
             elif correctAnswerCounter == 14 and spriteClicked(multiAns4Label):
                 incorrect = True
-                
+
             if incorrect:
-                score -= 10 
-                changeLabel(Score, "Score : "+str(score))
+                score -= 10
+                changeLabel(Score, "Score : " + str(score))
                 back()
                 incorrect = False
-                
-                
 
     if touching(player, antidote):
         break
